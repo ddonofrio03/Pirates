@@ -202,6 +202,25 @@
     .pm-right{text-align:right}
     .pm-tba{color:var(--silver);font-size:.82rem;font-style:italic}
 
+
+    /* ── STANDINGS ── */
+    .standings-tbl{width:100%;border-collapse:collapse;font-size:.82rem}
+    .standings-tbl th{background:rgba(0,0,0,.6);color:rgba(253,184,39,.7);font-size:.58rem;
+      letter-spacing:1px;text-transform:uppercase;padding:7px 8px;text-align:center;
+      border-bottom:1px solid rgba(253,184,39,.18)}
+    .standings-tbl th:first-child{text-align:left}
+    .standings-tbl td{padding:7px 8px;text-align:center;
+      border-bottom:1px solid rgba(255,255,255,.04);
+      font-family:'Share Tech Mono',monospace;font-size:.78rem;color:#b0b0b0}
+    .standings-tbl td:first-child{text-align:left;font-family:'Barlow Condensed',sans-serif;
+      font-size:.92rem;font-weight:600;color:var(--white)}
+    .standings-tbl tr.pirates-row td{background:rgba(253,184,39,.07)}
+    .standings-tbl tr.pirates-row td:first-child{color:var(--gold);font-weight:700}
+    .standings-tbl .gb-first{color:rgba(253,184,39,.5);font-size:.7rem}
+    .clinch-badge{display:inline-block;font-size:.55rem;color:var(--gold);
+      border:1px solid rgba(253,184,39,.4);border-radius:3px;padding:1px 4px;
+      margin-left:5px;vertical-align:middle;font-family:'Barlow Condensed',sans-serif;
+      letter-spacing:1px}
     footer{position:relative;z-index:1;text-align:center;padding:14px 12px;
       color:rgba(255,255,255,.18);font-size:.6rem;letter-spacing:.8px;line-height:1.7;
       border-top:1px solid rgba(255,255,255,.05)}
@@ -229,6 +248,14 @@
     <div class="load-lbl">Loading Pirates...</div>
   </div>
 </main>
+<div style="position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 12px 24px">
+  <div class="sec-title" style="margin-top:4px">NL Central Standings</div>
+  <div class="card" style="margin-bottom:0">
+    <div id="standings-wrap" style="padding:4px 0">
+      <div style="text-align:center;padding:20px;color:#555;font-size:.8rem">Loading standings...</div>
+    </div>
+  </div>
+</div>
 <footer>MLB Stats API · statsapi.mlb.com · Personal use only<br/>Pittsburgh Pirates™ trademarks are property of the Pittsburgh Pirates LLC</footer>
 <script>
 const LOGO_B64 = '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';
@@ -688,9 +715,49 @@ function renderGame(feed){
     <div class="hint">Auto-refreshes every 30s</div>`;
 }
 
+
+/* ── STANDINGS ── */
+async function loadStandings(){
+  try{
+    const data = await api(BASE + '/standings?leagueId=104&season=2026&standingsTypes=regularSeason&hydrate=team,division');
+    const nlc = data.records.find(r => r.division?.nameShort === 'NL Central' || r.division?.name?.includes('Central') && r.division?.name?.includes('National'));
+    if(!nlc) return;
+
+    const teams = nlc.teamRecords;
+    const rows = teams.map(t => {
+      const isPIT = t.team.id === 134;
+      const gb = t.gamesBack === '-' ? '<span class="gb-first">—</span>' : t.gamesBack;
+      const streak = t.streak?.streakCode || '—';
+      const l10 = t.records?.splitRecords?.find(s=>s.type==='lastTen');
+      const l10str = l10 ? l10.wins+'-'+l10.losses : '—';
+      return \`<tr class="\${isPIT?'pirates-row':''}">
+        <td>\${t.team.name.replace('Pittsburgh ','PIT ').replace('Cincinnati ','CIN ').replace('St. Louis ','STL ').replace('Milwaukee ','MIL ').replace('Chicago ','CHC ')}</td>
+        <td>\${t.wins}</td><td>\${t.losses}</td>
+        <td>\${t.winningPercentage}</td>
+        <td>\${gb}</td>
+        <td>\${l10str}</td>
+        <td>\${streak}</td>
+      </tr>\`;
+    }).join('');
+
+    const container = document.getElementById('standings-wrap');
+    if(container){
+      container.innerHTML = \`
+        <div class="tbl-scroll">
+          <table class="standings-tbl">
+            <thead><tr>
+              <th>TEAM</th><th>W</th><th>L</th><th>PCT</th><th>GB</th><th>L10</th><th>STK</th>
+            </tr></thead>
+            <tbody>\${rows}</tbody>
+          </table>
+        </div>\`;
+    }
+  }catch(e){ console.log('Standings error:',e); }
+}
 clearInterval(timer);
 timer = setInterval(loadGame, 30000);
 loadGame();
+loadStandings();
 
 // Refresh immediately when user returns to the tab (handles iPhone background suspension)
 document.addEventListener('visibilitychange', function() {
@@ -698,6 +765,7 @@ document.addEventListener('visibilitychange', function() {
     clearInterval(timer);
     timer = setInterval(loadGame, 30000);
     loadGame();
+    loadStandings();
   }
 });
 
